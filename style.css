@@ -1,0 +1,137 @@
+body{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #eef2f3;
+    font-family: "Open Sans", sans-serif;
+    font-size: 12px;
+    
+}
+.main-container{
+    display:grid;
+    grid-template-columns: 300px 1fr;
+    gap:30px;
+    align-items: start;
+}
+
+.form-ajout {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);  
+}
+
+.form-ajout h2 {
+    margin-top: 0;
+    text-align: center;
+}
+
+.form-ajout button {
+    padding: 8px 14px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.form-ajout button:hover {
+    background-color: #0056b3;
+}
+
+.colonne-tableau h2 {
+    margin-top: 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+th, td {
+    border: 1px solid #dddddd;
+    padding: 12px 15px;
+    text-align: left;
+}
+
+th {
+    background-color: #2c3e50;
+    color: white;
+    font-weight: bold;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+table button {
+    padding: 6px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+}
+table button:hover {
+    background-color: #0056b3;
+}
+
+form[action="supprimer.php"] button {
+    background-color: #dc3545;
+}
+
+form[action="supprimer.php"] button:hover {
+    background-color: #a71d2a;
+}
+
+.form-container {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.filter {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.filter input[type="text"] {
+    padding: 8px 12px;
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+    font-size: 12px;
+    flex: 1;
+    background-color: #ffffff;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    box-sizing: border-box;
+}
+
+.filter input[type="text"]:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.15);
+}
+
+.filter button {
+    padding: 8px 14px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.filter button:hover {
+    background-color: #0056b3;
+}
