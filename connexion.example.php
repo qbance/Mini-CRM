@@ -6,6 +6,7 @@ $password = 'votre_mot_de_passe';
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
 } catch (PDOException $e) {
-    echo "Erreur de connexion : " . $e->getMessage();
+    error_log("Erreur de connexion : " . $e->getMessage());
+  die("Une erreur est survenue. Veuillez réessayer plus tard ou contacter l'administrateur.");
 }
 ?>

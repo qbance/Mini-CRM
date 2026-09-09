@@ -136,3 +136,16 @@ form[action="supprimer.php"] button:hover {
     background-color: #0056b3;
 }
 
+.badge {
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    color: white;
+    white-space: nowrap;
+}
+.badge-prospect { background-color: #f0ad4e; }
+.badge-client-actif { background-color: #28a745; }
+.badge-client-inactif { background-color: #6c757d; }
+.badge-perdu { background-color: #dc3545; }
+

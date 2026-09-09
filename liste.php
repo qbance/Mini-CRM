@@ -34,6 +34,12 @@
                     <input type="email" name="email" placeholder="Email" required>
                     <input type="text" name="telephone" placeholder="Téléphone" required>
                     <input type="text" name="entreprise" placeholder="Entreprise" required>
+                    <select name="statut" required>
+                        <option value="Prospect">Prospect</option>
+                        <option value="Client actif">Client actif</option>
+                        <option value="Client inactif">Client inactif</option>
+                        <option value="Perdu">Perdu</option>
+                        </select>
                     <button type="submit">Ajouter</button>
             </form>
         
@@ -43,6 +49,7 @@
                     <button type="submit">Filtrer</button>
                 </form>
                 <h2>Liste de résultats</h2>
+                <a href="export_csv.php<?= $recherche !== '' ? '?recherche=' . urlencode($recherche) : '' ?>" class="btn-export">Exporter en CSV</a>
                 <table>
                     <tr>
                         <th>Nom</th>
@@ -51,6 +58,7 @@
                         <th>Téléphone</th>
                         <th>Entreprise</th>
                         <th>Date de création</th>
+                        <th>Statut</th>
                         <th>Action</th>
                     </tr>
 
@@ -62,6 +70,7 @@
                         <td><?= htmlspecialchars($contact['telephone']) ?></td>
                         <td><?= htmlspecialchars($contact['entreprise']) ?></td>
                         <td><?= htmlspecialchars($contact['date_creation']) ?></td>
+                        <td><span class="badge badge-<?= strtolower(str_replace(' ', '-', $contact['statut'])) ?>"><?= htmlspecialchars($contact['statut']) ?></span></td>
                         <td>
                             <form method="GET" action="modifier.php" style="display:inline;">
                                 <input type="hidden" name="id" value="<?= $contact['id'] ?>">

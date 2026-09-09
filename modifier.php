@@ -11,10 +11,20 @@
 
         <?php
             require "connexion.php";
+
+             if (!isset($_GET['id']) || !ctype_digit($_GET['id'])) {
+                header("Location: liste.php");
+                exit;
+            }
             $id = $_GET['id'];
             $stmt = $pdo->prepare("SELECT * FROM contacts WHERE id = ?");
             $stmt->execute([$id]);
             $contact = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            if (!$contact) {
+                header("Location: liste.php");
+                exit;
+            }
         ?>
         <div class="form-container">
             <form method="POST" action="update.php" class="form-ajout">
@@ -24,6 +34,11 @@
                 <input type="text" name="email" value="<?= htmlspecialchars($contact['email']) ?>" required>
                 <input type="text" name="telephone" value="<?= htmlspecialchars($contact['telephone']) ?>" required>
                 <input type="text" name="entreprise" value="<?= htmlspecialchars($contact['entreprise']) ?>" required>
+                <select name="statut" required>
+                    <?php foreach (['Prospect', 'Client actif', 'Client inactif', 'Perdu'] as $s): ?>
+                        <option value="<?= $s ?>" <?= $contact['statut'] === $s ? 'selected' : '' ?>><?= $s ?></option>
+                    <?php endforeach; ?>
+                </select>
                 <button type="submit">Enregistrer les modifications</button>
             </form>
         </div>
