@@ -1,1 +1,7 @@
+# Fichiers de configuration sensibles
 connexion.php
+
+# Environnements et IDE
+.DS_Store
+.vscode/
+.idea/

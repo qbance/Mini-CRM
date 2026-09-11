@@ -1,4 +1,6 @@
 <?php
+require "auth.php";
+requireRole(['admin', 'manager']);
 require "connexion.php";
 
 $recherche = isset($_GET['recherche']) ? trim($_GET['recherche']) : '';

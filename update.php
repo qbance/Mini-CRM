@@ -1,4 +1,5 @@
 <?php
+require "auth.php";
 require "connexion.php";
 
 if (!isset($_POST['id']) || !ctype_digit($_POST['id'])) {

@@ -1,3 +1,4 @@
+<?php require "auth.php"; ?>
 <!DOCTYPE html>
 <html lang="fr">
     <head>
@@ -10,7 +11,24 @@
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
     </head>
     <body>
-        <h1 class="title">Mini CRM</h1>
+        <div class="header-bar">
+    <h1 class="title">Mini CRM</h1>
+    <?php if ($_SESSION['role'] === 'admin'): ?>
+    <a href="utilisateurs.php" class="btn-users" title="Gérer les utilisateurs">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+    </a>
+<?php endif; ?>
+    <div class="user-badge">
+        <div class="user-avatar"><?= htmlspecialchars(mb_strtoupper(mb_substr($_SESSION['username'], 0, 1))) ?></div>
+        <div class="user-info">
+            <span class="user-name"><?= htmlspecialchars($_SESSION['username']) ?></span>
+            <span class="user-role"><?= htmlspecialchars(ucfirst($_SESSION['role'])) ?></span>
+        </div>
+        <a href="logout.php" class="btn-logout-icon" title="Déconnexion" aria-label="Déconnexion">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+        </a>
+    </div>
+</div>
 
             <?php
                 require "connexion.php";
@@ -49,7 +67,9 @@
                     <button type="submit">Filtrer</button>
                 </form>
                 <h2>Liste de résultats</h2>
+                <?php if (in_array($_SESSION['role'], ['admin', 'manager'])): ?>
                 <a href="export_csv.php<?= $recherche !== '' ? '?recherche=' . urlencode($recherche) : '' ?>" class="btn-export">Exporter en CSV</a>
+                <?php endif; ?>
                 <table>
                     <tr>
                         <th>Nom</th>
