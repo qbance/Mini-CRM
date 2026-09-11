@@ -21,6 +21,22 @@ Application web de gestion de contacts (CRM) développée en PHP et MySQL, dans 
 - Export des contacts au format CSV (réservé aux rôles autorisés)
 - Interface responsive et épurée
 
+## Captures d'écran
+
+### Connexion
+![Page de connexion](screenshots/login.png)
+
+### Espace admin — Liste des contacts
+![Vue admin](screenshots/admin-crm.png)
+
+### Espace admin — Gestion des utilisateurs
+![Créer un utilisateur](screenshots/admin-creer_utilisateur.png)
+
+### Espace employé — Liste des contacts
+![Vue employé](screenshots/utilisateur.png)
+
+### Modifier un contact
+![Modifier le contact](screenshots/utilisateur-modifier_contact.png)
 
 ## Stack technique
 
